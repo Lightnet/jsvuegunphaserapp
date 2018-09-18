@@ -20,12 +20,17 @@
                 </tr>
             </table>
         </div>
-        
+        <GameApp />
     </div>
 </template>
 
 <script>
+import GameApp from '../game/phasergame';
+
 export default {
+    components: {
+        GameApp
+    },
     data() {
         return {
             msg: 'Login!',
