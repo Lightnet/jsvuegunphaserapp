@@ -2,10 +2,7 @@
     <div>
         <accountinfo></accountinfo>
         <indexnav></indexnav>
-        <div class="example">
-            {{ msg }}
-
-        </div>
+        <PhaserApp />
         <BottomBar></BottomBar>
     </div>
 </template>
@@ -14,11 +11,13 @@
 import AccountInfo from './AccountInfo.vue';
 import IndexNav from './IndexNav.vue';
 import BottomBar from './BottomBar';
+import PhaserApp from '../phaserapp/PhaserApp';
 
 export default {
     components: {
         'indexnav':IndexNav,
         'accountinfo':AccountInfo,
+        PhaserApp,
         BottomBar,
     },
     data () {
@@ -28,10 +27,9 @@ export default {
     },
     created(){
 
-
-        
     },
     beforeDestroy(){
+
     },
     methods: {
     }

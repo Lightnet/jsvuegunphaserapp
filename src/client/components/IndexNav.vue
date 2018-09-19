@@ -7,7 +7,7 @@
             <a href="#" @click="clickMessages">Messages</a>
             <!--<a href="#" @click="clickForum">Forum</a>-->
             <a href="#" @click="clickChat">Chat</a>
-            <a href="#" @click="clickDocument">Documents</a>
+            <!--<a href="#" @click="clickDocument">Documents</a>-->
             <a href="#" @click="clickToDoList">ToDoList</a>
             <a href="#" @click="clickLogout">Logout</a>
         </div>

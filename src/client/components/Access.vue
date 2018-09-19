@@ -20,16 +20,16 @@
                 </tr>
             </table>
         </div>
-        <GameApp />
+        <PhaserApp />
     </div>
 </template>
 
 <script>
-import GameApp from '../game/phasergame';
+import PhaserApp from '../phaserapp/PhaserApp';
 
 export default {
     components: {
-        GameApp
+        PhaserApp
     },
     data() {
         return {

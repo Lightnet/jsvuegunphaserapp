@@ -2,9 +2,10 @@
     <div>
         <accountinfo></accountinfo>
         <indexnav></indexnav>
-        <GameApp />
+        Home
         <BottomBar />
         <!--
+        <PhaserApp />
         <AliasContacts></AliasContacts>
         <AlphaTest></AlphaTest>
         <accountpassphrasehint></accountpassphrasehint>
@@ -19,7 +20,7 @@
 import AccountInfo from './AccountInfo.vue';
 import IndexNav from './IndexNav.vue';
 import BottomBar from './BottomBar';
-import GameApp from '../game/phasergame';
+import PhaserApp from '../phaserapp/PhaserApp';
 
 //import AccountChangePassPhrase from './gaccount/AccountChangePassPhrase.vue';
 //import AccountPassPhraseHint from './gaccount/AccountPassPhraseHint.vue';
@@ -39,7 +40,7 @@ export default {
         //'accountchangepassphrase':AccountChangePassPhrase,
         //'accountpassphrasehint':AccountPassPhraseHint,
         //AliasContacts,
-        GameApp,
+        PhaserApp,
         BottomBar,
         AlphaTest,
 
