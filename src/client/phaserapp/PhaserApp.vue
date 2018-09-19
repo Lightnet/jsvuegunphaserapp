@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Phaser from 'Phaser';
+import Phaser from 'phaser';
 import SceneMain from './SceneMain';
 
 export default {
