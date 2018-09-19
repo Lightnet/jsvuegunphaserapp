@@ -20,16 +20,19 @@
                 </tr>
             </table>
         </div>
-        <PhaserApp />
+
+        <phaserapp></phaserapp>
+        
     </div>
 </template>
 
 <script>
-import PhaserApp from '../phaserapp/PhaserApp';
+
+import PhaserApp from '../phaserapp/PhaserApp.vue';
 
 export default {
     components: {
-        PhaserApp
+        'phaserapp':PhaserApp,
     },
     data() {
         return {

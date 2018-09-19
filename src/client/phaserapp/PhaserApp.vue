@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div id="phaserapp"></div>
+        <div id="phaserapp"></div>
     </div>
 </template>
 

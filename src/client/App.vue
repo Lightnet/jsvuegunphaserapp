@@ -6,6 +6,7 @@
         <div id="dialog_message" title="Message">
             <p>{{dialogmessage}}</p>
         </div>
+        <!--<phaserapp></phaserapp>-->
     </div>
 </template>
 <script>
@@ -22,6 +23,8 @@ import Chat from './components/GChat.vue';
 import Documents from './components/GDocuments.vue';
 import ToDoList from './components/GToDoList.vue';
 
+import PhaserApp from './phaserapp/PhaserApp.vue';
+
 import bus from './bus';
 export default {
     components: {
@@ -36,6 +39,7 @@ export default {
         'documents':Documents,
         'todolist':ToDoList,
         'Game':GGame,
+        'phaserapp':PhaserApp,
     },
     data () {
         return {

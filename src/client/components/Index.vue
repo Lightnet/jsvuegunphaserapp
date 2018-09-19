@@ -3,6 +3,7 @@
         <accountinfo></accountinfo>
         <indexnav></indexnav>
         Home
+        <accountsearch></accountsearch>
         <BottomBar />
         <!--
         <PhaserApp />
@@ -25,7 +26,7 @@ import PhaserApp from '../phaserapp/PhaserApp';
 //import AccountChangePassPhrase from './gaccount/AccountChangePassPhrase.vue';
 //import AccountPassPhraseHint from './gaccount/AccountPassPhraseHint.vue';
 //import AccountProfile from './gaccount/AccountProfile.vue';
-//import AccountSearch from './gaccount/AccountSearch.vue';
+import AccountSearch from './gaccount/AccountSearch.vue';
 //import AliasContacts from './gaccount/AliasContacts.vue';
 import AlphaTest from './AlphaTest.vue';
 //import Phaser from 'Phaser';
@@ -35,7 +36,7 @@ export default {
         'indexnav':IndexNav,
         'accountinfo':AccountInfo,
         //'accountprofile':AccountProfile,
-        //'accountsearch':AccountSearch,
+        'accountsearch':AccountSearch,
 
         //'accountchangepassphrase':AccountChangePassPhrase,
         //'accountpassphrasehint':AccountPassPhraseHint,
