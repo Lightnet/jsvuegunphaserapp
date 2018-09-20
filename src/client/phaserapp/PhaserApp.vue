@@ -9,17 +9,19 @@ import Phaser from 'phaser';
 import SceneMain from './SceneMain';
 
 export default {
+    
     components: {
 
     },
+
     data() {
         return {
-            //username: 'Guest',
-            //pubid:''
         }
     },
+
     //created(){
     //},
+
     mounted(){
         //let self = this;
         this.config = {//work on mounted to get the id attach when create html
