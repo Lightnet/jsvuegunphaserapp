@@ -1,12 +1,18 @@
 <template>
     <div>
+        <!--
         <div class="container">
 			<component :is="currentView" ></component>
 		</div>
         <div id="dialog_message" title="Message">
             <p>{{dialogmessage}}</p>
         </div>
-        <!--<phaserapp></phaserapp>-->
+        -->
+        <phaserapp/>
+        <!--
+
+
+        -->
     </div>
 </template>
 <script>

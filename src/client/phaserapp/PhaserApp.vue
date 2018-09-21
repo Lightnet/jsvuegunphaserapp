@@ -6,22 +6,18 @@
 
 <script>
 import Phaser from 'phaser';
-import SceneMain from './SceneMain';
+
+import BootScene from './scenes/BootScene';
+import TitleScene from './scenes/TitleScene';
+import GameScene from './scenes/GameScene';
 
 export default {
-    
-    components: {
-
-    },
-
+    //components: {},
+    //created(){},
     data() {
         return {
         }
     },
-
-    //created(){
-    //},
-
     mounted(){
         //let self = this;
         this.config = {//work on mounted to get the id attach when create html
@@ -33,11 +29,12 @@ export default {
             physics: {
                 default: 'arcade',
                 arcade: {
-                    gravity: { y: 200 },
+                    gravity: { y: 0 },//200
                     debug:true
                 }
             },
-            scene:[SceneMain]
+            //scene:[SceneMain]
+            scene:[GameScene]
         };
 
         var game = new Phaser.Game(this.config);

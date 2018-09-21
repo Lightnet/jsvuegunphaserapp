@@ -9,3 +9,4 @@ rundb.bat
 .vscode/
 src/client/components/old/
 src/client/old/
+public/assets/
