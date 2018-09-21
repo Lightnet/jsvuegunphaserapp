@@ -11,6 +11,8 @@ import BootScene from './scenes/BootScene';
 import TitleScene from './scenes/TitleScene';
 import GameScene from './scenes/GameScene';
 
+import EBasePlugin from './plugins/EBasePlugin';
+
 export default {
     //components: {},
     //created(){},
@@ -33,6 +35,13 @@ export default {
                     debug:true
                 }
             },
+            //plugins: [ 'BasePlugin','ControlPlugin','DialogModalPlugin' ],
+            plugins: {
+                global: [ EBasePlugin.DefaultCfg ],
+            },
+            //map: {
+                //'base': 'base'
+            //},
             //scene:[SceneMain]
             scene:[GameScene]
         };

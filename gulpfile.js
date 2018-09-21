@@ -9,7 +9,8 @@ var browserSync = require('browser-sync').create();
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 //var CompressionPlugin = require("compression-webpack-plugin");
 //const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader')
+const { VueLoaderPlugin } = require('vue-loader');
+var babel = require('gulp-babel');
 
 var server = null;
 
@@ -180,7 +181,34 @@ gulp.task('build', ['frontend-build', 'backend-build']);
 gulp.task('watch', ['frontend-watch', 'backend-watch'],()=>{
 
     gulp.watch(['./main.js'],['build']);
+    gulp.watch(['./src/client/phaserapp/plugins/**/*.js'],['buildplugins']);
 });
+
+gulp.task('buildplugins', function() {
+    gulp.src('./src/client/phaserapp/plugins/**/*.js')
+    //gulp.src('src/test.js')
+        .pipe(babel({
+            presets: ['env',{"modules": false}]
+        }))
+        //.pipe(gulp.dest('public'));
+        .pipe(gulp.dest('./public/plugins'));
+});
+
+gulp.task('copyimages', function() {
+    gulp.src('./assets/**/*.{gif,jpg,png,svg}')
+        .pipe(gulp.dest('./public/assets'));
+});
+
+gulp.task('scripts', function() {
+    return gulp.src(
+      [
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      'src/test.js'
+      ])
+      .pipe(babel({presets: ['env']}))
+      .pipe(gulp.dest('compiled'))
+});
+
 
 //start server
 gulp.task('serve',[], function() {
@@ -225,4 +253,4 @@ gulp.task('browser-sync',['serve'], function() {
     });
 });
 
-gulp.task('default', ['build','watch','serve','browser-sync']);
+gulp.task('default', ['copyimages','build','buildplugins','watch','serve','browser-sync']);
