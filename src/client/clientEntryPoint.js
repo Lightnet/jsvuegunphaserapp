@@ -86,9 +86,8 @@ function init(){
             }
         }
     })
-    
     $("#loading").empty();//empty element html when finish loading javascript...
-    console.log("init?=================");
+    //console.log("init?=================");
 }
 
 init();

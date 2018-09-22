@@ -43,7 +43,12 @@ export default {
                 //'base': 'base'
             //},
             //scene:[SceneMain]
-            scene:[GameScene]
+            scene:[
+                
+                //TitleScene,
+                GameScene,
+                BootScene,
+            ]
         };
 
         var game = new Phaser.Game(this.config);

@@ -36,8 +36,8 @@ export default class player00 extends Phaser.GameObjects.Sprite {
     }
 
     small() {
-        this.body.setSize(10, 10);
-        this.body.offset.set(3, 14);
+        //this.body.setSize(10, 10);
+        //this.body.offset.set(3, 14);
     }
 
     update(keys, time, delta) {
@@ -51,30 +51,31 @@ export default class player00 extends Phaser.GameObjects.Sprite {
         }
         */
 
-       let input = {
-        left: keys.left.isDown ,
-        right: keys.right.isDown ,
-        down: keys.down.isDown ,
-        jump: keys.jump.isDown || keys.jump2.isDown,
-        fire: keys.fire.isDown
+        let input = {
+            left: keys.left.isDown ,
+            right: keys.right.isDown ,
+            down: keys.down.isDown ,
+            //jump: keys.jump.isDown || keys.jump2.isDown,
+            up: keys.up.isDown,
+            fire: keys.fire.isDown
         }
 
         if (input.left) {
-            if (this.body.velocity.y === 0) {
-                this.x -= 1;
-                //this.run(-this.acceleration);
-            } else {
-                //this.run(-this.acceleration / 3);
-            }
-            this.flipX = true;
+            //this.x -= 1;
+            this.runX(-this.acceleration);
+            //this.flipX = true;
         } else if (input.right) {
-            if (this.body.velocity.y === 0) {
-                //this.run(this.acceleration);
-                this.x += 1;
-            } else {
-                //this.run(this.acceleration / 3);
-            }
+            this.runX(this.acceleration);
+            //this.x += 1;
             this.flipX = false;
+        } else if (input.up) {
+            this.runY(-this.acceleration);
+            //this.y -= 1;
+            //this.run(this.acceleration / 3);
+            //this.flipX = false;
+        } else if (input.down) {
+            this.runY(this.acceleration); 
+            //this.flipX = false;
         } else if (this.body.blocked.down) {
 
             if (Math.abs(this.body.velocity.x) < 10) {
@@ -83,7 +84,18 @@ export default class player00 extends Phaser.GameObjects.Sprite {
             } else {
                 //this.run(((this.body.velocity.x > 0) ? -1 : 1) * this.acceleration / 2);
             }
+        }else{
+            this.runX(0);
+            this.runY(0);
         }
-
     }
+
+    runX(vel) {
+        this.body.setAccelerationX(vel);
+    }
+
+    runY(vel) {
+        this.body.setAccelerationY(vel);
+    }
+
 }
