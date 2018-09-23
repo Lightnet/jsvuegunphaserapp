@@ -44,7 +44,6 @@ export default {
             //},
             //scene:[SceneMain]
             scene:[
-                
                 //TitleScene,
                 GameScene,
                 BootScene,

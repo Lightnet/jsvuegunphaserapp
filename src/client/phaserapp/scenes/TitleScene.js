@@ -1,6 +1,8 @@
 // http://www.html5gamedevs.com/topic/36850-solvederror-thisaddbutton-is-not-a-function/
 // https://snowbillr.github.io/blog//2018-07-03-buttons-in-phaser-3/
 // https://github.com/photonstorm/phaser-examples
+// http://www.html5gamedevs.com/topic/37617-trouble-changing-scenes-in-phaser-3/
+// 
 
 
 import Phaser from 'phaser';
@@ -51,6 +53,12 @@ class TitleScene extends Phaser.Scene{
 
     clickNewGame(){
         console.log("new game");
+        //Phaser.Scene.call(this, { key: 'GameScene' });
+        //console.log(this.scene.scene.launch('GameScene'))
+        //this.scene.scene.launch('GameScene')
+        this.scene.scene.start('GameScene')
+
+        console.log(this.scene.scene)
     }
 
     clickLoadGame(){
