@@ -14,6 +14,10 @@ class TitleScene extends Phaser.Scene{
         //console.log(this.load);
         //this.load.spritesheet('button', 'assets/buttons/button_sprite_sheet.png', 193, 71);
         //this.load.image('button', 'assets/buttons/button_sprite_sheet.png');
+
+        //this.load.image('grayredblock', 'assets/blockredgray32.png');
+
+        this.load.spritesheet('button', 'assets/buttons/button_sprite_sheet.png', { frameWidth: 85, frameHeight: 24 });
     }
 
     create(){

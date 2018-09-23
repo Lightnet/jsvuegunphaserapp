@@ -10,6 +10,7 @@ class GameScene extends Phaser.Scene{
 
     preload(){
         console.log(this.load);
+        this.load.image('grayredblock', 'assets/blockredgray32.png');
         this.load.image('player00', 'assets/characters/player00.png');
     }
 
@@ -60,9 +61,9 @@ class GameScene extends Phaser.Scene{
     }
 
     AddStuff(){
+        let block = this.physics.add.sprite(200, 200, 'grayredblock');
 
-
-        
+        this.physics.add.collider(block, this.player00);
 
     }
 
