@@ -10,6 +10,7 @@ import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
 import TitleScene from './scenes/TitleScene';
 import GameScene from './scenes/GameScene';
+import HUDScene from './scenes/HUDScene';
 
 import EBasePlugin from './plugins/EBasePlugin';
 
@@ -46,6 +47,7 @@ export default {
             scene:[
                 //TitleScene,
                 GameScene,
+                HUDScene,
                 BootScene,
             ]
         };

@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     mode:'development',
-    entry:  ['babel-polyfill','./src/client/clientEntryPoint.js'],
+    entry:  ['@babel/polyfill','./src/client/clientEntryPoint.js'],
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
@@ -36,10 +36,10 @@ module.exports = {
                 include: [
                     path.resolve(__dirname, 'src')
                 ],
-                loader: 'babel-loader',
-                query: {
-                    presets: ['babel-preset-env'].map(require.resolve)
-                }
+                loader: 'babel-loader'//,
+                //query: {
+                    //presets: ['babel-preset-env'].map(require.resolve)
+                //}
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,

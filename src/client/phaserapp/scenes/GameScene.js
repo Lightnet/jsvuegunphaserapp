@@ -1,3 +1,7 @@
+// https://github.com/photonstorm/phaser-examples/blob/master/examples/camera/fixed%20to%20camera.js
+// https://labs.phaser.io/edit.html?src=src%5Cscenes%5Cui%20scene%20es6.js
+
+
 import Phaser from 'phaser';
 
 import Player00 from '../sprites/Player00';
@@ -16,19 +20,27 @@ class GameScene extends Phaser.Scene{
 
     create(){
         this.players = this.add.group();
+        this.enemies = this.add.group();
         this.projectiles = this.add.group();
         //console.log('Ready');
         //console.log("init game app?");
         //this.sys.install('EBasePlugin');
-        console.log(this);
+        //console.log(this);
         //this.add.addNineSlice();
         this.add.EBasePlugin();
         //this.sys.install('BasePlugin');
         //this.sys.install('ControlPlugin');
-        this.add.text(1, 1, 'Hello Phaser!', { fill: '#0f0' });
-
+        let TextUI =  this.add.text(1, 1, 'Hello Phaser!', { fill: '#0f0' });
+        TextUI.setInteractive();
+        let self = this;
+        TextUI.on('pointerdown', ()=>{
+            console.log("test");
+            self.events.emit('action');
+        });
+        
+        this.initHUD();
+        
         //console.log(Phaser.Input.Keyboard.KeyCodes);
-
         // this.keys will contain all we need to control player.
         // Any key could just replace the default (like this.key.jump)
         this.keys = {
@@ -48,6 +60,22 @@ class GameScene extends Phaser.Scene{
         this.AddStuff();
     }
 
+    initHUD(){
+        //this.HUDText = this.add.text(100, 100, 'HUD', { fill: '#0f0' });
+        //console.log(this.HUDText);
+        //this.HUDText.fixedToCamera = true;
+        //console.log(this);
+        this.scene.scene.scene.launch('HUDScene');
+        //this.events.emit('addScore'); does not work when it since not yet init
+
+        let HUDScene = this.scene.get('HUDScene');
+
+        HUDScene.events.on('action',()=> {
+            //HUDText.setText('Score: ' + self.Score);
+            console.log("Game Action?");
+        }, this);
+    }
+
     spawnplayer(){
         //this.players
         this.player00 = new Player00({
@@ -58,6 +86,7 @@ class GameScene extends Phaser.Scene{
             x:1,
             y:1,
         });
+        this.players.add(this.player00);
         // The camera should follow Mario
         this.cameras.main.startFollow(this.player00);
     }
@@ -66,14 +95,13 @@ class GameScene extends Phaser.Scene{
         let block = this.physics.add.sprite(200, 200, 'grayredblock');
         //this.projectiles.create(200, 200, 'grayredblock').physics;
         this.projectiles.add(block);
-        console.log(this.projectiles);
+        //console.log(this.projectiles);
 
         //this.physics.add.collider(block, this.player00);
         // http://phaser.io/tutorials/making-your-first-phaser-3-game/part8
         //this.physics.add.overlap(this.player00, block, this.overlapcollision, null, this);
-
-        this.physics.add.overlap(this.player00, this.projectiles, this.overlapcollision, null, this);
-
+        //this.physics.add.overlap(this.player00, this.projectiles, this.overlapcollision, null, this);
+        this.physics.add.overlap(this.players, this.projectiles, this.overlapcollision, null, this);
     }
 
     overlapcollision (player, star){
