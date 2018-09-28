@@ -1,5 +1,6 @@
 // https://github.com/photonstorm/phaser-examples/blob/master/examples/camera/fixed%20to%20camera.js
 // https://labs.phaser.io/edit.html?src=src%5Cscenes%5Cui%20scene%20es6.js
+// https://www.joshmorony.com/phaser-fundamentals-handling-collisions/
 
 
 import Phaser from 'phaser';
@@ -22,6 +23,10 @@ class GameScene extends Phaser.Scene{
         this.players = this.add.group();
         this.enemies = this.add.group();
         this.projectiles = this.add.group();
+        //this.walls = this.add.group();
+        this.walls = this.physics.add.staticGroup();
+
+        this.walls = this.add.group();
         //console.log('Ready');
         //console.log("init game app?");
         //this.sys.install('EBasePlugin');
@@ -102,6 +107,20 @@ class GameScene extends Phaser.Scene{
         //this.physics.add.overlap(this.player00, block, this.overlapcollision, null, this);
         //this.physics.add.overlap(this.player00, this.projectiles, this.overlapcollision, null, this);
         this.physics.add.overlap(this.players, this.projectiles, this.overlapcollision, null, this);
+
+
+        let wall = this.physics.add.sprite(0, 200, 'grayredblock');
+        wall.body.immovable = true;
+        //wall.body.mass = 0;
+        //console.log(wall);
+        //wall.setCollisionByProperty({
+            //collide: true
+        //});
+        this.walls.add(wall);
+        //this.walls.create(0, 220, 'grayredblock');
+
+        this.physics.add.collider(this.players, this.walls);
+
     }
 
     overlapcollision (player, star){

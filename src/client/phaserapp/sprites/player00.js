@@ -51,6 +51,8 @@ export default class player00 extends Phaser.GameObjects.Sprite {
         }
         */
 
+        this.fireCoolDown -= delta;
+
         let input = {
             left: keys.left.isDown ,
             right: keys.right.isDown ,
@@ -58,6 +60,14 @@ export default class player00 extends Phaser.GameObjects.Sprite {
             //jump: keys.jump.isDown || keys.jump2.isDown,
             up: keys.up.isDown,
             fire: keys.fire.isDown
+        }
+
+        if(input.fire && this.fireCoolDown < 0){
+            //console.log(this.scene);
+            //console.log(this.x,this.y);
+            //let block = this.scene.physics.add.sprite(this.x, this.y, 'grayredblock');
+            this.attack();
+            this.fireCoolDown = 300;
         }
 
         if (input.left) {
@@ -89,6 +99,14 @@ export default class player00 extends Phaser.GameObjects.Sprite {
             this.runY(0);
         }
     }
+
+    attack(){
+        let block = this.scene.physics.add.sprite(this.x, this.y, 'grayredblock');
+
+        this.scene.projectiles.add(block);
+    }
+
+
 
     runX(vel) {
         this.body.setAccelerationX(vel);
