@@ -30,7 +30,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
     "gulp-live-server": "^0.0.31",
-    "gun": "^0.9.99995",
+    "gun": "^0.2019.930",
     "gun-mongo": "^0.1.2",
     "helmet": "^3.13.0",
     "img-loader": "^3.0.0",
